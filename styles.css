@@ -1,123 +1,130 @@
 * {
-
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .register-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    min-width: 300px;
-    margin: 0 auto;
-    border: 1px solid #f7ad00;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #e4b20c6a;
-    justify-content: center;
-    align-items: center;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #f7ad00;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #e4b20c6a;
+  justify-content: center;
+  align-items: center;
 
-    input {
-        border-radius: 10px;
-        outline: none;
-        border: 2px solid rgb(255, 191, 0);
-        margin: 0 0 20px;
-        padding: 5px;
-        width: 100%;
-        background-color: #f3f0c4;
-        
-        transition: border ease-in 0.3s
-    }
+  input {
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(255, 191, 0);
+    margin: 0 0 20px;
+    padding: 5px;
+    width: 100%;
+    background-color: #f3f0c4;
 
-    input:hover,
-    input:focus-visible {
-        border: 2px solid rgb(127, 88, 16);
-    }
+    transition: border ease-in 0.3s;
+  }
 
+  input:hover,
+  input:focus-visible {
+    border: 2px solid rgb(127, 88, 16);
+  }
 }
 
 .register-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
 
-    button {
-        border: 1px solid rgb(127, 88, 16);
-        background-color: #817f3a;
-        color: #fff;
-        border-radius: 5px;
-        padding: 5px;
-        min-width: 50px;
+  button {
+    border: 1px solid rgb(127, 88, 16);
+    background-color: #817f3a;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 50px;
+    transition: background-color ease-in 0.3s;
+  }
 
-    }
+  button:hover,
+  button:focus {
+    background-color: #605e2b;
+  }
 }
 
 .login-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
 }
 
 .linkToLogin {
-    display: flex;
-    
-    align-items: center;
-    justify-content:space-between;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
 }
 
 .linkToRegister {
-    display: flex;
-    
-    align-items: center;
-    justify-content:space-between;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
 }
 
-
 .login-form {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #00d9ff;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #0087fd6a;
+  justify-content: center;
+  align-items: center;
 
-     display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    min-width: 300px;
-    margin: 0 auto;
-    border: 1px solid #00d9ff;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #0087fd6a;
-    justify-content: center;
-    align-items: center;
+  input {
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(0, 179, 255);
+    margin: 0 0 20px;
+    padding: 5px;
+    width: 100%;
+    background-color: #f3f0c4;
 
-    input {
-        border-radius: 10px;
-        outline: none;
-        border: 2px solid rgb(0, 179, 255);
-        margin: 0 0 20px;
-        padding: 5px;
-        width: 100%;
-        background-color: #f3f0c4;
-        
-        transition: border ease-in 0.3s
-    }
+    transition: border ease-in 0.3s;
+  }
 
-    input:hover,
-    input:focus-visible {
-        border: 2px solid rgb(127, 88, 16);
-    }
+  input:hover,
+  input:focus-visible {
+    border: 2px solid rgb(127, 88, 16);
+  }
 
-     button {
-        border: 1px solid rgb(0, 68, 255);
-        background-color: #0084ff;
-        color: #fff;
-        border-radius: 5px;
-        padding: 5px;
-        min-width: 50px;
+  button {
+    border: 1px solid rgb(0, 68, 255);
+    background-color: #0084ff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 50px;
+    transition: background-color ease-in 0.3s;
+  }
 
-    }
-
+  button:hover,
+  button:focus {
+    background-color: #03539e;
+  }
 }
 
 .login-reset {
-    font-size: 15px;
+  font-size: 15px;
 }
 
