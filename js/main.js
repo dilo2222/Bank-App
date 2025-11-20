@@ -15,5 +15,9 @@ async function moduling(value) {
     }
 }
 
-moduling("register")
+
+document.addEventListener("DOMContentLoaded",  function() {
+    moduling("login")
+})
+
 
