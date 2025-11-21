@@ -1,8 +1,9 @@
 
 
-async function moduling(value) {
+export async function moduling(value) {
     const appEl = document.querySelector(".app")
 
+    appEl.innerHTML = ""
     switch (value) {
         case "login":
         const {login} = await import("./login.js")

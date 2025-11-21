@@ -2,13 +2,17 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #d3d3d3;
+}
+
 .register-form {
   user-select: none;
   display: flex;
   flex-direction: column;
   max-width: 500px;
   min-width: 300px;
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
   border: 1px solid #f7ad00;
   padding: 20px;
   border-radius: 20px;
@@ -83,7 +87,7 @@
   flex-direction: column;
   max-width: 500px;
   min-width: 300px;
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
   border: 1px solid #00d9ff;
   padding: 20px;
   border-radius: 20px;

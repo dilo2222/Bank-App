@@ -1,3 +1,5 @@
+import {moduling } from "./main.js"
+
 export function login(container) {
   const appWrapper = document.createElement("div");
 
@@ -5,7 +7,7 @@ export function login(container) {
     <form class="login-form">
       <h2 class="register-title">Login</h2>
       
-      <input class="login-name" type="text" placeholder="login" name="email" required />
+      <input class="login-name" type="text" placeholder="login" name="login" required />
       <input class="login-password" type="password" placeholder="password" name="password" required />
       
       <div class="login-inner">
@@ -13,7 +15,7 @@ export function login(container) {
         
         <div class="linkToRegister">
           <span class="login-reset">forgot login or password?</span> 
-          <button type="button" class="btnToRegister">Reset</button>
+          <button type="button" class="btnToReset">Reset</button>
         </div>
         
         <div class="linkToRegister">
@@ -23,35 +25,45 @@ export function login(container) {
       </div>
     </form>`;
 
-  
+  const linktoregister = appWrapper.querySelector(".btnToRegister")
   const formEl = appWrapper.querySelector(".login-form")
+
 
     formEl.addEventListener("submit", function(e) {
       e.preventDefault()
       const data = new FormData(formEl)
-      const obj = Object.fromEntries(data)
-      console.log(obj)
-      const memory = JSON.parse(localStorage.getItem("userLogin")) || []
-      memory.push(obj)
+      const userLogin = data.get("login")
+      const userPassword = data.get("password")
 
-      localStorage.setItem("userLogin", JSON.stringify(memory))
+      const memory = JSON.parse(localStorage.getItem("userLogin"))
+
+      if (userLogin.trim() === memory.login) {
+        console.log("hii")
+      }
+
     }) 
+
+    linktoregister.addEventListener("click", function(e) {
+        moduling("register")
+    })
 
   container.append(appWrapper);
 }
+
+
 
 export function register(container) {
   const appWrapper = document.createElement("div");
 
   appWrapper.innerHTML = `
-    <form class="register-form" type="submit">
+    <form class="register-form">
     <h2 class="register-titile">Register</h2>
 
-    <input class="register-name" placeholder="login" name="registerElementName" required>
+    <input class="register-name" placeholder="full name" name="userFullName" required>
 
-    <input class="register-surname" placeholder="login" name="registerElementSurname" required>
+    <input class="register-surname" placeholder="login" name="userLogin" required>
 
-     <input class="login-passsword" placeholder="password" name="registerElement" required>
+     <input class="login-passsword" placeholder="password" name="userPassowrd" required>
 
      <div class="register-inner">
 
@@ -64,6 +76,25 @@ export function register(container) {
       </div>
       
     </form>`;
+
+    const formEl = appWrapper.querySelector(".register-form")
+    formEl.addEventListener("submit",  function(e) {
+      e.preventDefault()
+      const data = new FormData(formEl)
+      const userLogin = data.get("userLogin")
+      const userPassword = data.get("userPassowrd")
+      
+      const userData = {
+        login: userLogin,
+        password: userPassword
+      }
+
+      localStorage.setItem("userLogin", JSON.stringify(userData))
+
+
+    })
+    
+
 
   container.append(appWrapper);
 }
