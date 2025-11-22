@@ -140,3 +140,8 @@ body {
   display: flex;
 }
 
+.profile-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr  minmax(200px, 300px);
+}
+
