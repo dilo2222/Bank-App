@@ -13,7 +13,7 @@ export function login(container) {
       <div class="login-inner">
         <button class="allSubmit" type="submit">Login</button>
         
-        <div class="linkToRegister">
+        <div class="linkToRegister  pop">
           <span class="login-reset">forgot login or password?</span> 
           <button type="button" class="btnToReset">Reset</button>
         </div>
@@ -38,7 +38,10 @@ export function login(container) {
       const memory = JSON.parse(localStorage.getItem("userLogin"))
 
       if (userLogin.trim() === memory.login) {
-        console.log("hii")
+        moduling("profile")
+      } else if (userLogin.trim() !== memory.login) {
+        const resetEl =  appWrapper.querySelector(".pop") 
+        resetEl.classList.add("popAppear")
       }
 
     }) 

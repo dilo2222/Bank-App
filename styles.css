@@ -132,3 +132,11 @@ body {
   font-size: 15px;
 }
 
+.pop {
+  display: none;
+}
+
+.popAppear {
+  display: flex;
+}
+
