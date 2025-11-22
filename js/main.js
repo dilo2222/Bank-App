@@ -22,7 +22,7 @@ export async function moduling(value) {
 
 
 document.addEventListener("DOMContentLoaded",  function() {
-    moduling("profile")
+    moduling("login")
 })
 
 
