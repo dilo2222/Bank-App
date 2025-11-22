@@ -13,12 +13,16 @@ export async function moduling(value) {
         const {register} = await import("./login.js")
         register(appEl)
         break;
+        case "profile": 
+        const {profile} = await import("./profilePage.js")
+        profile(appEl)
+        break;
     }
 }
 
 
 document.addEventListener("DOMContentLoaded",  function() {
-    moduling("login")
+    moduling("profile")
 })
 
 
