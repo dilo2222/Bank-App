@@ -37,12 +37,7 @@ export function login(container) {
 
       const memory = JSON.parse(localStorage.getItem("userLogin"))
 
-      if (userLogin.trim() === memory.login) {
-        moduling("profile")
-      } else if (userLogin.trim() !== memory.login) {
-        const resetEl =  appWrapper.querySelector(".pop") 
-        resetEl.classList.add("popAppear")
-      }
+      
 
     }) 
 
@@ -92,7 +87,15 @@ export function register(container) {
         password: userPassword
       }
 
-      localStorage.setItem("userLogin", JSON.stringify(userData))
+      const memory = JSON.parse(localStorage.getItem("userLogin")) || []
+      if (memory.find((el) => el.login !== userData.login)) {
+        memory.push(userData)
+        alert("success")
+      } else {
+        alert("data is the same")
+      }
+
+      localStorage.setItem("userLogin", JSON.stringify(memory))
 
 
     })
