@@ -79,7 +79,7 @@ export function register(container) {
 
       <div class="linkToLogin">
       <span class="login-reset">already registered?</span>
-       <button class="btnToLogin">Login</button>
+       <button type="button" class="btnToLogin">Login</button>
       </div>
       </div>
       
@@ -105,10 +105,13 @@ export function register(container) {
       alert("success");
     }
 
-    console.log(memory.find((el) => el.login));
 
     localStorage.setItem("userLogin", JSON.stringify(memory));
   });
+
+  formEl.querySelector(".btnToLogin").addEventListener("click" , function(e) {[
+    moduling("login")
+  ]})
 
   container.append(appWrapper);
 }
