@@ -1,4 +1,4 @@
-import {moduling } from "./main.js"
+import { moduling } from "./main.js";
 
 export function login(container) {
   const appWrapper = document.createElement("div");
@@ -25,30 +25,40 @@ export function login(container) {
       </div>
     </form>`;
 
-  const linktoregister = appWrapper.querySelector(".btnToRegister")
-  const formEl = appWrapper.querySelector(".login-form")
+  const linktoregister = appWrapper.querySelector(".btnToRegister");
+  const formEl = appWrapper.querySelector(".login-form");
 
+  let count = 0;
 
-    formEl.addEventListener("submit", function(e) {
-      e.preventDefault()
-      const data = new FormData(formEl)
-      const userLogin = data.get("login")
-      const userPassword = data.get("password")
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(formEl);
+    const userLogin = data.get("login");
+    const userPassword = data.get("password");
 
-      const memory = JSON.parse(localStorage.getItem("userLogin"))
+    const memory = JSON.parse(localStorage.getItem("userLogin"));
 
-      
+    if (
+      memory.find(
+        (el) => el.login === userLogin && el.password === userPassword
+      )
+    ) {
+      moduling("profile");
+    } else {
+      alert("wrong login or password");
+      count += 1;
+      if (count === 2) {
+        appWrapper.querySelector(".pop").classList.remove("pop");
+      }
+    }
+  });
 
-    }) 
-
-    linktoregister.addEventListener("click", function(e) {
-        moduling("register")
-    })
+  linktoregister.addEventListener("click", function (e) {
+    moduling("register");
+  });
 
   container.append(appWrapper);
 }
-
-
 
 export function register(container) {
   const appWrapper = document.createElement("div");
@@ -69,38 +79,39 @@ export function register(container) {
 
       <div class="linkToLogin">
       <span class="login-reset">already registered?</span>
-       <button class="btnToLogin">Login</button>
+       <button type="button" class="btnToLogin">Login</button>
       </div>
       </div>
       
     </form>`;
 
-    const formEl = appWrapper.querySelector(".register-form")
-    formEl.addEventListener("submit",  function(e) {
-      e.preventDefault()
-      const data = new FormData(formEl)
-      const userLogin = data.get("userLogin")
-      const userPassword = data.get("userPassowrd")
-      
-      const userData = {
-        login: userLogin,
-        password: userPassword
-      }
+  const formEl = appWrapper.querySelector(".register-form");
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(formEl);
+    const userLogin = data.get("userLogin");
+    const userPassword = data.get("userPassowrd");
 
-      const memory = JSON.parse(localStorage.getItem("userLogin")) || []
-      if (memory.find((el) => el.login !== userData.login)) {
-        memory.push(userData)
-        alert("success")
-      } else {
-        alert("data is the same")
-      }
+    const userData = {
+      login: userLogin,
+      password: userPassword,
+    };
 
-      localStorage.setItem("userLogin", JSON.stringify(memory))
+    const memory = JSON.parse(localStorage.getItem("userLogin")) || [];
+    if (memory.find((el) => el.login === userData.login)) {
+      alert("data is not the same");
+    } else {
+      memory.push(userData);
+      alert("success");
+    }
 
 
-    })
-    
+    localStorage.setItem("userLogin", JSON.stringify(memory));
+  });
 
+  formEl.querySelector(".btnToLogin").addEventListener("click" , function(e) {[
+    moduling("login")
+  ]})
 
   container.append(appWrapper);
 }
